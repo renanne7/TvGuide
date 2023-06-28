@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace TvGuide
+﻿namespace TvGuide
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Call class Guide
             var guide = new Guide();
 
             Console.WriteLine("A. Search Shows (single search)");
@@ -16,18 +13,19 @@ namespace TvGuide
             Console.WriteLine("\nEnter option:");
             var option = Console.ReadLine();
 
-            switch(option)
+            switch(option?.ToUpper())
             {
-                case var name when string.Equals(name, "A", StringComparison.InvariantCultureIgnoreCase):
-                    guide.SearchShow();
+                case "A":
+                    guide.SearchShow().Wait();
                     break;
-                case var name when string.Equals(name, "B", StringComparison.InvariantCultureIgnoreCase):
+                case "B":
                     guide.SearchShows();
                     break;
-                case var name when string.Equals(name, "C", StringComparison.InvariantCultureIgnoreCase):
+                case "C":
                     guide.WatchNow();
                     break;
                 default:
+                    Console.WriteLine("Invalid option. Please try again.");
                     break;
             }  
         }
