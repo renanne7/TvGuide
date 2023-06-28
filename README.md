@@ -1,3 +1,3 @@
 # TvGuide
 
-Let's you look up shows.
+Lets you look up shows.
